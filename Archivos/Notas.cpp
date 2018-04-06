@@ -213,6 +213,24 @@ char* Notas::obtenerNombre_alumno(const int codigoAlumno){
 	return NULL;
 }
 
+
+void Notas::consultarArchivo() {
+	ifstream archivoNotas("Notas.dat", ios::in);
+
+	if (!archivoNotas) {
+		cout << "No se pudo abrir el archivo." << endl;
+		return;
+	}
+
+	int codigoMateria, codigoAlumno, nota;
+
+	archivoNotas.seekg(0, ios::beg);
+
+	while (archivoNotas >> codigoMateria >> codigoAlumno >> nota) {
+		cout << "Nota de materia: " << obtenerNombre_materia(codigoMateria) << ", Nombre de alumno: " << obtenerNombre_alumno(codigoAlumno) << ", Nota: " << nota;
+	}
+}
+
 char* Notas::obtenerNombre_materia(const int codigoMateria){
 	ifstream archivoAlumno("Materias.dat", ios::app);
 
@@ -238,15 +256,8 @@ char* Notas::obtenerNombre_materia(const int codigoMateria){
 	return NULL;
 }
 
-void Notas::calcularPromedioAlumno()
-{
 
 
-}
-
-void Notas::calcularPromedioMAteria()
-{
-}
 
 void Notas::consultarNotas(){
 	ifstream archivoNotas("Notas.dat", ios::in);

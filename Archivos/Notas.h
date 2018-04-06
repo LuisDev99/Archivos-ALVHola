@@ -9,6 +9,7 @@ public:
 	static void consultarMaterias();
 	static void registrarNotas();
 	static void consultarNotas();
+	static void consultarArchivo();
 	static int busquedaCodigo_alumno(char *);
 	static int busquedacodigo_materia(char *);
 	static char* obtenerNombre_alumno(const int);
